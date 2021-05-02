@@ -4,12 +4,15 @@ import "boxicons"
 import NavBar from "./components/NavBar"
 import Main from "./components/Main"
 import Modal from "./components/Modal"
+import ReactDOM from "react-dom"
 
 const Cart_ctx = createContext()
 const App = () => {
   const[cartItemCount,setCartItemCount] = useState(0)
   const[modalOpen,setModalOpen] = useState(false)
-  const[cartItems,setCartItems] = useState([5,6,4])
+  const[cartItems,setCartItems] = useState([])
+  const[totalCost,setTotalCost] = useState([0])
+
 
   return (
     <>
@@ -20,8 +23,8 @@ const App = () => {
                 setModalOpen,cartItems,setCartItems}}>
       <NavBar/>
       <Main cartItems={cartItems}/>
-      <Modal modalOpen={modalOpen} cartItems={cartItems}/>
-      {/* {console.log(cartItems)} */}
+      {/* {ReactDOM.create} */}
+      <Modal setModalOpen={setModalOpen} modalOpen={modalOpen} />
      </Cart_ctx.Provider >
     </>
   )

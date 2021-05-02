@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CartProvider from "./components/CartProvider";
+import Modal from "./components/Modal"
 
 ReactDOM.render(
-  <React.StrictMode>
+  <CartProvider>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </CartProvider>,
+document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

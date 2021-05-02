@@ -1,10 +1,8 @@
 import React from 'react'
 import Item from "./Items"
 import Products from "./productsArray"
-import Cart_ctx from "../App"
 
 const Main = ({cartItems}) => {
-  console.log(cartItems);
   return (
     <>
     <div className="container hero">

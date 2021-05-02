@@ -2,13 +2,31 @@ const Products = [
   {
     id:1,
     name: "pepaarooni pizza",
-    price : "6 $",
+    price : 9 ,
     discription : "tasty pizza peperooni with grilled mushrooms"
   },
   {
     id:2,
     name : "Meat Balls",
-    price : "4 $",
+    price : 5 ,
+    discription : "enjoy the delecious Meat balls that melt in your mouth"
+  },
+  {
+    id:3,
+    name : "Meat Balls",
+    price : 5 ,
+    discription : "enjoy the delecious Meat balls that melt in your mouth"
+  },
+  {
+    id:4,
+    name : "Meat Balls",
+    price : 5 ,
+    discription : "enjoy the delecious Meat balls that melt in your mouth"
+  },
+  {
+    id:5,
+    name : "Meat Balls",
+    price : 5 ,
     discription : "enjoy the delecious Meat balls that melt in your mouth"
   },
   // {
