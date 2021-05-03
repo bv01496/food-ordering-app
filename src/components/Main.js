@@ -2,7 +2,7 @@ import React from 'react'
 import Item from "./Items"
 import Products from "./productsArray"
 
-const Main = ({cartItems}) => {
+const Main = () => {
   return (
     <>
     <div className="container hero">

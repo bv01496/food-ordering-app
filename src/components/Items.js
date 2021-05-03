@@ -1,5 +1,4 @@
-import React,{useContext,useState,useEffect} from 'react'
-import {Cart_ctx} from "../App"
+import React,{useContext,useState} from 'react'
 import "boxicons"
 import {Cart} from "./CartProvider"
 
@@ -10,6 +9,13 @@ const Item = ({product}) => {
   const handleclick=()=>{
     cart_ctx.addItems(product,addItem)
     setAddItem(1)
+  }
+  const handleChange=(e)=>{
+    if(e.target.value > 5 || e.target.value < 1){
+      return
+    }else{
+      setAddItem(parseInt(e.target.value))
+    }
   }
   return (
     <>
@@ -22,7 +28,7 @@ const Item = ({product}) => {
           </div>
           <div className="add-cart">
           <label htmlFor="qty"> Qty :</label>
-          <input id="qty" type="number" value={addItem} onChange={(e)=>setAddItem(parseInt(e.target.value))}  min="1" max="5"/><br/>
+          <input id="qty" type="number" value={addItem} onChange={handleChange}  min="1" max="5"/><br/>
           <button className="button" onClick={handleclick}> ADD </button>
           </div>
         </div>

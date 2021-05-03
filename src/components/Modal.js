@@ -19,7 +19,7 @@ const Modal = ({modalOpen,setModalOpen}) => {
         {cart_ctx.cart.items.map((item)=>{
           return(
             <>
-            <div className="modal-item-container">
+            <div key={item.id} className="modal-item-container">
             <div className="modal-item-info">
               <h3 className="modal-item-name">{item.name}</h3> <br/>
             <span className="modal-item-price">$ {item.price}</span>
@@ -42,8 +42,7 @@ const Modal = ({modalOpen,setModalOpen}) => {
         {cart_ctx.cart.items.length > 0 &&(<button className="button">order</button>)}
         </div>
       </div>
-    </div>,document.getElementById("portal")
-  )
+    </div>,document.getElementById("portal"))
 }
 
 export default Modal

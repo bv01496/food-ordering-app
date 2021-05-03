@@ -1,5 +1,4 @@
 import React,{useContext} from 'react'
-import {Cart_ctx} from "../App"
 import {Cart} from "./CartProvider"
 
 const CartItems = () => {
