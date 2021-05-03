@@ -14,7 +14,7 @@ const Main = () => {
           delecious meal and tasty lunch </p>
       </div>
     </div>
-    <div className="items-container">
+    <div className="items-container ">
       {Products.map((product)=><Item key={product.id} product={product}/>)}
     </div>
     </>

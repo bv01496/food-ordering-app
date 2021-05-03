@@ -27,7 +27,7 @@ const Item = ({product}) => {
           <i>{product.discription}</i>
           </div>
           <div className="add-cart">
-          <label htmlFor="qty"> Qty :</label>
+          <label htmlFor="qty"> Qty (only 5 items) :</label>
           <input id="qty" type="number" value={addItem} onChange={handleChange}  min="1" max="5"/><br/>
           <button className="button" onClick={handleclick}> ADD </button>
           </div>

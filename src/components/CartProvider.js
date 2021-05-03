@@ -32,6 +32,11 @@ const cartReducer=(state,action)=>{
       state.items.splice(removeIndex,1)
       return {...state}
     }
+  }else if(action.type === "ORDER"){
+    state.items = []
+    state.totalItems = 0
+    state.totalprice = 0
+    return {...state}
   }
 }
 const cartInit = {
@@ -49,9 +54,13 @@ const CartProvider = (props) => {
   const removeItems =(id)=>{
     dispatchCart({type: "REMOVE", id: id})
   }
+  const order =()=>{
+    dispatchCart({type: "ORDER"})
+    console.log(cart.items);
+  }
 
   return (
-    <Cart.Provider value={{cart,addItems,removeItems}}>
+    <Cart.Provider value={{cart,addItems,removeItems,order}}>
       {props.children}
     </Cart.Provider>
   )

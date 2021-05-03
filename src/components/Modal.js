@@ -6,6 +6,11 @@ import ReactDOM from "react-dom"
 
 const Modal = ({modalOpen,setModalOpen}) => {
   const cart_ctx = useContext(Cart)
+  const handleClick =()=>{
+    setModalOpen(false)
+    cart_ctx.order()
+    alert("your order is placed, do not anticipate any dilivery")
+  }
   if (!modalOpen) return null
   return ReactDOM.createPortal(
     <div className="overlay" >
@@ -39,7 +44,7 @@ const Modal = ({modalOpen,setModalOpen}) => {
         </div>)}
         <div className="modal-buttons">
         <button style={{backgroundColor:"transparent" ,color:"brown",border:"1px solid brown"}} onClick={()=>setModalOpen(false)} className="button">close</button>
-        {cart_ctx.cart.items.length > 0 &&(<button className="button">order</button>)}
+        {cart_ctx.cart.items.length > 0 &&(<button className="button" onClick={handleClick}>order</button>)}
         </div>
       </div>
     </div>,document.getElementById("portal"))
