@@ -1,8 +1,12 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Item from "./Items"
 import Products from "./productsArray"
 
-const Main = () => {
+const Main = ({modalOpen}) => {
+  const[classes,setClasses] = useState("")
+  useEffect(()=>{
+    modalOpen? setClasses("jump"):setClasses("")
+  },[modalOpen]) 
   return (
     <>
     <div className="container hero">
@@ -14,7 +18,7 @@ const Main = () => {
           delecious meal and tasty lunch </p>
       </div>
     </div>
-    <div className="items-container ">
+    <div className={`items-container ${classes}`}>
       {Products.map((product)=><Item key={product.id} product={product}/>)}
     </div>
     </>

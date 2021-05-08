@@ -7,7 +7,10 @@ const NavBar = ({setModalOpen}) => {
   const[classes,setClasses] = useState("")
   useEffect(()=>{
     setClasses("bump")
-    setTimeout(()=>setClasses(""),300)
+    const timer = setTimeout(()=>setClasses(""),300)
+    return()=>{
+      clearTimeout(timer)
+    }
   },[context.cart.totalItems]) 
   return (
     <>

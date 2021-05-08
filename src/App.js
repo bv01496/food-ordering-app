@@ -12,7 +12,7 @@ const App = () => {
   return (
     <>
       <NavBar setModalOpen={setModalOpen}/>
-      <Main />
+      <Main modalOpen={modalOpen} />
       <Modal setModalOpen={setModalOpen} modalOpen={modalOpen} />
     </>
   )

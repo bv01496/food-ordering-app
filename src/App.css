@@ -98,6 +98,8 @@ html::-webkit-scrollbar {
   transform: translate(-50%);
   background-color: white;
   z-index: -1;
+  transition: all .2s ease-in;
+  display: block;
 }
 .item{
   color: rgb(70, 13, 13);
@@ -169,7 +171,7 @@ html::-webkit-scrollbar {
   background-color: white;
   border-radius: 15px;
   text-align: center;
-  padding :15px;
+  padding :0 15px 0 20px;
 }
 .modal-item-container{
   margin: 20px;
@@ -194,7 +196,7 @@ html::-webkit-scrollbar {
   flex-direction: row;
 }
 .modal-buttons>*{
-  margin: 10px;
+  margin: 15px;
 }
 .summary{
   display:flex;
@@ -222,6 +224,10 @@ html::-webkit-scrollbar {
 .bump{
   animation: bump .3s ease-in-out;
 }
+.jump{
+  /* animation: jump .3s ease-out; */
+  display: none;
+}
 @keyframes bump{
   0%{
     transform: scale(1);
@@ -232,4 +238,59 @@ html::-webkit-scrollbar {
   100%{
     transform: scale(1);
   }
+}
+@keyframes jump{
+  0%{
+    top:85%;
+  }
+  /* 50%{
+    top: 65%;
+  } */
+  100%{
+    top:80%
+  }
+  
+}
+
+.disappear{
+  display: none;
+}
+.open{
+  display: block;
+}
+.close{
+  display: none;
+}
+
+.checkout-form{
+  display: flex;
+  height: 250px;
+  margin: 15px 15px 15px 15px;
+  /* position: absolute; */
+  /* z-index: -1; */
+  flex-direction:column ;
+  align-items: start;
+  padding: 5px 0 0 12px;
+  overflow: scroll;
+  border: 1px solid brown;
+  transition: all .5s ease-in-out;
+  /* box-shadow: 3px 5px 10px; */
+}
+.checkout-form::-webkit-scrollbar{
+  width: 4px;
+}
+.checkout-form::-webkit-scrollbar-thumb{
+  background: black;
+}
+.checkout-form > input{
+  height: 3.2em;
+  margin: 8px;
+  width: 300px;
+  border: 2px solid black;
+  font-size: 22px;
+  padding: 4px;
+  color: brown;
+}
+.error-text{
+  color: red;
 }

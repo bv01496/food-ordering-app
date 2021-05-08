@@ -1,16 +1,21 @@
-import React,{useContext} from 'react'
+import React,{useContext,useState} from 'react'
 import {Cart} from "./CartProvider"
 import Empty from "../images/box.png"
 import ReactDOM from "react-dom"
+import Checkout from "./checkout"
 
 
 const Modal = ({modalOpen,setModalOpen}) => {
+  // const scr = document.getElementsByClassName("checkout-form")
+  const [checkoutOpen,setCheckoutOpen] = useState(false)
   const cart_ctx = useContext(Cart)
   const handleClick =()=>{
-    setModalOpen(false)
-    cart_ctx.order()
-    alert("your order is placed, do not anticipate any dilivery")
+    // setModalOpen(false)
+    // scr.scrollIntoView();
+    setCheckoutOpen(true);
+    // cart_ctx.order()
   }
+
   if (!modalOpen) return null
   return ReactDOM.createPortal(
     <div className="overlay" >
@@ -42,10 +47,11 @@ const Modal = ({modalOpen,setModalOpen}) => {
           <span className="total-items">total Items :{cart_ctx.cart.totalItems}</span>
           <span className="total-price"> total :  ${cart_ctx.cart.totalprice}</span>
         </div>)}
-        <div className="modal-buttons">
+        <div className={`modal-buttons ${checkoutOpen && "disappear"}`}>
         <button style={{backgroundColor:"transparent" ,color:"brown",border:"1px solid brown"}} onClick={()=>setModalOpen(false)} className="button">close</button>
-        {cart_ctx.cart.items.length > 0 &&(<button className="button" onClick={handleClick}>order</button>)}
+        {cart_ctx.cart.items.length > 0 &&(<button className="button" onClick={handleClick}>checkout</button>)}
         </div>
+        {<Checkout open={checkoutOpen} setOpen={setCheckoutOpen}/>}
       </div>
     </div>,document.getElementById("portal"))
 }
