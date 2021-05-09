@@ -6,14 +6,11 @@ import Checkout from "./checkout"
 
 
 const Modal = ({modalOpen,setModalOpen}) => {
-  // const scr = document.getElementsByClassName("checkout-form")
   const [checkoutOpen,setCheckoutOpen] = useState(false)
   const cart_ctx = useContext(Cart)
+  console.log(cart_ctx.cart.items)
   const handleClick =()=>{
-    // setModalOpen(false)
-    // scr.scrollIntoView();
     setCheckoutOpen(true);
-    // cart_ctx.order()
   }
 
   if (!modalOpen) return null
@@ -26,7 +23,8 @@ const Modal = ({modalOpen,setModalOpen}) => {
           <h2 className="empty-cart-title"> YOUR CART IS EMPTY...</h2>
           </>
         )}
-        {cart_ctx.cart.items.map((item)=>{
+        {
+        cart_ctx.cart.items.map((item)=>{
           return(
             <>
             <div key={item.id} className="modal-item-container">
@@ -51,7 +49,7 @@ const Modal = ({modalOpen,setModalOpen}) => {
         <button style={{backgroundColor:"transparent" ,color:"brown",border:"1px solid brown"}} onClick={()=>setModalOpen(false)} className="button">close</button>
         {cart_ctx.cart.items.length > 0 &&(<button className="button" onClick={handleClick}>checkout</button>)}
         </div>
-        {<Checkout open={checkoutOpen} setOpen={setCheckoutOpen}/>}
+        {<Checkout setModalOpen={setModalOpen}  open={checkoutOpen} setOpen={setCheckoutOpen}/>}
       </div>
     </div>,document.getElementById("portal"))
 }

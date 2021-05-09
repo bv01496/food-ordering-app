@@ -11,11 +11,10 @@ const useInput=(validate)=>{
   },[entredValue])
   
   const isValied = validate(entredValue)
-  console.log(isValied);
   const valueChangeHandler=(e)=>{
     setEntredValue(e.target.value)
   }
-  const hasError = !isValied && inputTouched
+  const hasError = !isValied || empty
   const isTouched =()=>{
     setInputTouched(true)
   }

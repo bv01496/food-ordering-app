@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import Item from "./Items"
 import Products from "./productsArray"
+import Order_message from "./order_message"
 
 const Main = ({modalOpen}) => {
   const[classes,setClasses] = useState("")
@@ -21,6 +22,7 @@ const Main = ({modalOpen}) => {
     <div className={`items-container ${classes}`}>
       {Products.map((product)=><Item key={product.id} product={product}/>)}
     </div>
+    <Order_message/>
     </>
   )
 }

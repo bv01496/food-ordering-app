@@ -36,13 +36,15 @@ const cartReducer=(state,action)=>{
     state.items = []
     state.totalItems = 0
     state.totalprice = 0
+    state.order_conformed = true
     return {...state}
   }
 }
 const cartInit = {
   items: [],
   totalprice : 0,
-  totalItems : 0
+  totalItems : 0,
+  order_conformed : false
 }
 const Cart = createContext()
 const CartProvider = (props) => {
@@ -56,7 +58,6 @@ const CartProvider = (props) => {
   }
   const order =()=>{
     dispatchCart({type: "ORDER"})
-    console.log(cart.items);
   }
 
   return (
