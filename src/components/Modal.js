@@ -8,7 +8,6 @@ import Checkout from "./checkout"
 const Modal = ({modalOpen,setModalOpen}) => {
   const [checkoutOpen,setCheckoutOpen] = useState(false)
   const cart_ctx = useContext(Cart)
-  console.log(cart_ctx.cart.items)
   const handleClick =()=>{
     setCheckoutOpen(true);
   }

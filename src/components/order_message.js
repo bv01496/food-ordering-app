@@ -3,7 +3,6 @@ import {Cart} from "./CartProvider"
 
 const Order_message = () => {
   const cxt = useContext(Cart)
-  console.log(cxt.cart.order_conformed);
   if(!cxt.cart.order_conformed){return null}
   return (
     <div className="order_conformation">

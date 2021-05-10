@@ -14,7 +14,7 @@ const useInput=(validate)=>{
   const valueChangeHandler=(e)=>{
     setEntredValue(e.target.value)
   }
-  const hasError = !isValied || empty
+  const hasError = isValied && !empty
   const isTouched =()=>{
     setInputTouched(true)
   }

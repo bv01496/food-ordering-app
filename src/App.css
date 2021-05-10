@@ -7,6 +7,15 @@
 html::-webkit-scrollbar {
   display: none;
 }
+body{
+  background: #c31432;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh;
+  position: relative;
+  z-index: -1;
+
+}
 .navbar {
   position: fixed;
   top: 0;
@@ -91,15 +100,15 @@ html::-webkit-scrollbar {
 .items-container {
   position: absolute;
   top: 80%;
-  left: 50%;
+  left: 20%;
   width: 780px;
   height: auto;
   border-radius: 20px;
   box-shadow: 1px 8px 10px black;
-  transform: translate(-50%);
+  /* transform: translate(-50%); */
   background-color: white;
   z-index: -1;
-  transition: all 0.2s ease-in;
+  transition: all 0.1s ease-in;
   display: block;
 }
 .item {
@@ -224,31 +233,30 @@ html::-webkit-scrollbar {
 }
 .bump {
   animation: bump 0.3s ease-in-out;
+  top: 84%;
 }
-.jump {
-  /* animation: jump .3s ease-out; */
-  display: none;
+.pp{
+  position: fixed;
+  top: 20%;
+  left: 40%;
 }
+.pp >h1{
+  color: white;
+}
+.pp>*{
+  margin: 10px;
+  padding: 10px;
+}
+
 @keyframes bump {
   0% {
-    transform: scale(1);
+    top: 80%;
   }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes jump {
-  0% {
+  80% {
     top: 85%;
   }
-  /* 50%{
-    top: 65%;
-  } */
   100% {
-    top: 80%;
+    top: 84%;
   }
 }
 

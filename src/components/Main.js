@@ -1,13 +1,22 @@
 import React,{useState,useEffect} from 'react'
+import {useSelector,useDispatch} from "react-redux"
 import Item from "./Items"
 import Products from "./productsArray"
 import Order_message from "./order_message"
 
 const Main = ({modalOpen}) => {
+  const counter =  useSelector(state=>state.counter)
+  const dispatch = useDispatch();
   const[classes,setClasses] = useState("")
   useEffect(()=>{
-    modalOpen? setClasses("jump"):setClasses("")
+    modalOpen? setClasses("bump"):setClasses("")
   },[modalOpen]) 
+  const increment=()=>{
+    dispatch({type:"increment"});
+  }
+  const decrement=()=>{
+    dispatch({type:""});
+  }
   return (
     <>
     <div className="container hero">
@@ -21,6 +30,11 @@ const Main = ({modalOpen}) => {
     </div>
     <div className={`items-container ${classes}`}>
       {Products.map((product)=><Item key={product.id} product={product}/>)}
+    </div>
+    <div className="pp">
+    <h1>{counter}</h1>
+    <button type="submit" onClick={increment}>incre</button>
+    <button type="submit" onClick={decrement}>decre</button>
     </div>
     <Order_message/>
     </>
